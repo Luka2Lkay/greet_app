@@ -1,1 +1,1 @@
-This greeting application gives a user an option to greet a person in one of the three languages(isiXhosa, English or Portuguese). live preview:
+This greeting application gives a user an option to greet a person in one of the three languages(isiXhosa, English or Portuguese). live preview: https://luka2lkay.github.io/greet_app/
