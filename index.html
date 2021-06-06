@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greetings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Greeting App</h1>
+        </header>
+
+        <div id="error_message"></div>
+
+        <div id="output"></div>
+
+        <input type="text" id="input_value" placeholder="Please enter your name">
+
+        <h4>
+            No. of names greeted: <span id="counter">0</span>
+        </h4>
+
+        <div id="radio_buttons">
+            <label for="isixhosa">
+                IsiXhosa <input type="radio" name="lang" value="isiXhosa" id="isixhosa">
+            </label>
+            <label for="english">
+                English <input type="radio" name="lang" value="English" id="english">
+            </label>
+            <label for="portuguese">
+                Portuguese <input type="radio" name="lang" value="Portuguese" id="portuguese">
+            </label>
+        </div>
+
+        <div id="buttons">
+            <button id="greet_button">GREET</button>
+            <button id="reset_button">RESET</button>
+            <button id="list_button">SHOW GREETED PEOPLE</button>
+        </div>
+
+        <div id="show_greeted"></div>
+
+    </main>
+    <script src="script.js"></script>
+
+</body>
+
+
+</html>

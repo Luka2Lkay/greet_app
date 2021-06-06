@@ -1,0 +1,1 @@
+This greeting application gives a user an option to greet a person in one of the three languages(isiXhosa, English or Portuguese). live preview:
