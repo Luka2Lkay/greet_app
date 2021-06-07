@@ -59,8 +59,6 @@ const renderGreeting = (existingNames) => {
 
     const clearMsg = () => null;
 
-    const greeted = () => greetedNames;
-
     const addToObject = (enteredName) => {
         const name = enteredName;
         const firstLetter = name[0].toUpperCase();
@@ -73,8 +71,6 @@ const renderGreeting = (existingNames) => {
 
             outputName.classList.add('output_paragraph');
             outputName.appendChild(outputPara);
-
-            outputName.textContent = null;
 
             errorPara.textContent = 'You have already greeted this person';
 
@@ -102,7 +98,6 @@ const renderGreeting = (existingNames) => {
         addToObject,
         getValues,
         showAllGreeted,
-        greeted,
         enterNameFirst,
     }
 }
@@ -122,13 +117,15 @@ greetBtn.addEventListener('click', () => {
 
     if (input.value) {
         if (isixhosaRadio.checked || englishRadio.checked || portugueseRadio.checked) {
-            render.addToObject(input.value)
-            outputPara.textContent = render.sayHello(input.value);
-            counter.textContent = render.getCounter();
+            if (!input.value.match(/[0-9]/)){
+                render.addToObject(input.value)
+                outputPara.textContent = render.sayHello(input.value);
+                counter.textContent = render.getCounter();
 
-            setTimeout(() => {
-                outputPara.textContent = render.clearMsg()
-            }, 4000)
+                setTimeout(() => {
+                    outputPara.textContent = render.clearMsg()
+                }, 4000)
+            }
         }
 
     } else {
@@ -146,7 +143,6 @@ greetBtn.addEventListener('click', () => {
             errorPara.textContent = render.clearMsg();
         }, 4000)
         errorPara.textContent = render.selectLanguage();
-        outputName.textContent = null;
         input.value = null;
         return;
     }
@@ -156,14 +152,13 @@ greetBtn.addEventListener('click', () => {
             errorPara.textContent = render.clearMsg();
         }, 4000)
         errorPara.textContent = render.textOnly();
-        outputName.textContent = null;
+        render.uncheckedBtns();
+        input.value = null;
         return;
     }
 
-
     render.uncheckedBtns();
     input.value = null;
-
 })
 
 resetBtn.addEventListener('click', () => {
