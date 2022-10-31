@@ -1,5 +1,5 @@
 const errorMsg = document.getElementById('error__message');
-const outputName = document.getElementById('output__message');
+const correctMsg = document.getElementById('correct__message');
 const input = document.getElementById('input__value');
 const counter = document.getElementById('counter');
 const isixhosaRadio = document.getElementById('isixhosa');
@@ -10,67 +10,50 @@ const resetBtn = document.getElementById('reset__button');
 const showGreetedBtn = document.getElementById('list__button');
 const showGreeted = document.getElementById('show__greeted');
 const showGreetedPara = document.createElement('p');
-const outputPara = document.createElement('p');
-const errorPara = document.createElement('p');
+const correctHeading = document.createElement('h3');
+const errorHeading = document.createElement('h3');
 
 // Factory Function
 const renderGreeting = (existingNames) => {
 
     let greetedNames = existingNames || {};
 
-    const sayHello = (enteredName) => {
-
-        const name = enteredName;
-        const firstLetter = name[0].toUpperCase();
-        const remaining = name.slice(1,).toLowerCase();
+    const capitalizedName = (enteredName) => {
+        const firstLetter = enteredName[0].toUpperCase();
+        const remaining = enteredName.slice(1,).toLowerCase();
         const fullname = `${firstLetter}${remaining}`
+        return fullname;
+    }
 
+    const sayHello = (enteredName) => {
         if (isixhosaRadio.checked) {
-            return `Molo, ${fullname}`;
-        }
-
-        if (englishRadio.checked) {
-            return `Hello, ${fullname}`
-        }
-
-        if (portugueseRadio.checked) {
-            return `Olá, ${fullname}`
+            return `Molo, ${capitalizedName(enteredName)}`;
+        }else if (englishRadio.checked) {
+            return `Hello, ${capitalizedName(enteredName)}`
+        }else if (portugueseRadio.checked) {
+            return `Olá, ${capitalizedName(enteredName)}`
         }
     }
 
     const uncheckedBtns = () => {
-        isixhosaRadio.checked = false;
-        englishRadio.checked = false;
-        portugueseRadio.checked = false;
+        {isixhosaRadio.checked, englishRadio.checked, portugueseRadio.checked}  false;
     }
 
     const emptyInput = () => "Please Enter Your Name!";
-
     const selectLanguage = () => "Please select a language!";
-
     const textOnly = () => "Please enter a name that only contains letters, not numbers.";
-
     const enterNameFirst = () => "Please enter a name in the text-box and select a language of your choice before viewing people greeted";
-
     const getCounter = () => Object.values(greetedNames).length;
-
-
-    const getValues = () => Object.values(greetedNames);
-
+    const getGreetedNames = () => Object.values(greetedNames);
     const clearMsg = () => null;
 
-    const addToObject = (enteredName) => {
-        const name = enteredName;
-        const firstLetter = name[0].toUpperCase();
-        const remaining = name.slice(1,).toLowerCase();
-        const fullname = `${firstLetter}${remaining}`
+    const addName = (enteredName) => {
+        if (Object.values(greetedNames).includes(capitalizedName(enteredName))) {
+            // errorPara.classList.add('error__message');
+            // errorMsg.appendChild(errorPara);
 
-        if (Object.values(greetedNames).includes(fullname)) {
-            errorPara.classList.add('error_paragraph');
-            errorMsg.appendChild(errorPara);
-
-            outputName.classList.add('output_paragraph');
-            outputName.appendChild(outputPara);
+            // correctMsg.classList.add('correct__message');
+            // correctMsg.appendChild(correctPara);
 
             errorPara.textContent = 'Greet the person once!';
 
@@ -81,10 +64,10 @@ const renderGreeting = (existingNames) => {
             return;
         }
 
-        greetedNames[sayHello(enteredName)] = fullname;
+        greetedNames[sayHello(enteredName)] = capitalizedName(enteredName);
     }
     const showAllGreeted = () => {
-        return `You have greeted: ${getValues()}`;
+        return `You have greeted: ${getGreetedNames()}`;
     }
 
     return {
@@ -95,8 +78,8 @@ const renderGreeting = (existingNames) => {
         uncheckedBtns,
         selectLanguage,
         getCounter,
-        addToObject,
-        getValues,
+        addName,
+        getGreetedNames,
         showAllGreeted,
         enterNameFirst,
     }
@@ -109,49 +92,49 @@ let greetedNames;
 const render = renderGreeting(greetedNames);
 
 greetBtn.addEventListener('click', () => {
-    outputName.classList.add('output_paragraph');
-    outputName.appendChild(outputPara);
+    correctMsg.classList.add('correct__message');
+    correctMsg.appendChild(correctHeading);
 
-    errorPara.classList.add('error_paragraph');
-    errorMsg.appendChild(errorPara);
+    // errorPara.classList.add('error__message');
+    // errorMsg.appendChild(errorPara);
 
     if (input.value) {
         if (isixhosaRadio.checked || englishRadio.checked || portugueseRadio.checked) {
             if (!input.value.match(/[0-9]/)){
-                render.addToObject(input.value)
-                outputPara.textContent = render.sayHello(input.value);
+                render.addName(input.value)
+                correctHeading.textContent = render.sayHello(input.value);
                 counter.textContent = render.getCounter();
 
                 setTimeout(() => {
-                    outputPara.textContent = render.clearMsg()
+                    correctHeading.textContent = render.clearMsg()
                 }, 4000)
             }
         }
 
     } else {
         setTimeout(() => {
-            errorPara.textContent = render.clearMsg();
+            errorHeading.textContent = render.clearMsg();
         }, 4000)
 
-        errorPara.textContent = render.emptyInput();
+        errorHeading.textContent = render.emptyInput();
     }
 
     // Other Error messages
 
     if (isixhosaRadio.checked === false && englishRadio.checked === false && portugueseRadio.checked === false) {
         setTimeout(() => {
-            errorPara.textContent = render.clearMsg();
+            errorHeading.textContent = render.clearMsg();
         }, 4000)
-        errorPara.textContent = render.selectLanguage();
+        errorHeading.textContent = render.selectLanguage();
         input.value = null;
         return;
     }
 
     if (input.value.match(/[0-9]/)) {
         setTimeout(() => {
-            errorPara.textContent = render.clearMsg();
+            errorHeading.textContent = render.clearMsg();
         }, 4000)
-        errorPara.textContent = render.textOnly();
+        errorHeading.textContent = render.textOnly();
         render.uncheckedBtns();
         input.value = null;
         return;
@@ -166,24 +149,24 @@ resetBtn.addEventListener('click', () => {
 })
 
 showGreetedBtn.addEventListener('click', () => {
-    outputName.classList.add('output_paragraph');
-    outputName.appendChild(outputPara);
+    correctMsg.classList.add('output_paragraph');
+    correctMsg.appendChild(correctHeading);
 
-    errorPara.classList.add('error_paragraph');
-    errorMsg.appendChild(errorPara);
+    errorHeading.classList.add('error_paragraph');
+    errorMsg.appendChild(errorHeading);
 
     showGreeted.appendChild(showGreetedPara);
 
     if (render.getCounter() > 0) {
         showGreetedPara.textContent = render.showAllGreeted();
     } else {
-        errorPara.textContent = render.enterNameFirst();
+        errorHeading.textContent = render.enterNameFirst();
     }
 
     setTimeout(() => {
         showGreetedPara.textContent = render.clearMsg()
     }, 4000)
     setTimeout(() => {
-        errorPara.textContent = render.clearMsg()
+        errorHeading.textContent = render.clearMsg()
     }, 4000)
 })

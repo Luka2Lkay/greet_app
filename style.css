@@ -17,7 +17,6 @@ main{
     margin: 0 auto;
     background-color: #000;
     color: #fff;
-    padding-bottom: 1em;
     padding-top: 1em;
 }
 
@@ -85,7 +84,6 @@ main{
 .output {
     position: relative;
     top:-10em;
-    border: 1px solid red;
     border-radius: 50px;
     width: 100%;
     height: 3em;
@@ -109,4 +107,8 @@ main{
 
 label{
     margin-bottom: 5px;
+}
+
+#correct__message{
+    color: lime;
 }
