@@ -6,40 +6,92 @@ body{
 }
 
 h1{
-    color: white;
+    text-align: center;
+    color: blue;
 }
 
 main{
-    width: 25%;
-    margin-left: 40%;
-    margin-top: 5rem;
+    position: relative;
+    top: 10em;
+    width:30%;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
 
 #buttons{
     margin-top: 20px;
+    padding-left: 12px;
 }
 
-#radio_buttons{
+#radio__buttons{
     display: flex;
     flex-direction: column;
     width: 30%;
+    margin-left: 9%;
 }
 
  #isixhosa, #english, #portuguese{
     float: right;
 }
 
-#input_value{
+#input__value{
     width: 80%;
-    height: 20px;
+    height: 30px;
+    margin-left: 9%;
+    border-radius: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    border: 2px solid blue;
+    outline: none;
 }
 
-.error_paragraph{
+#greet__button {
+    height: 2em;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: green;
+    color: #fff;
+}
+
+#reset__button {
+    height: 2em;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: red;
+    color: #fff;
+}
+
+#list__button {
+    height: 2em;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: blue;
+    color: #fff;
+}
+
+.greeted__names__heading{
+    margin-left: 9%;
+    color: blue;
+    font-size: 18px;
+}
+
+.error__paragraph{
     color: red;
     font-size: 18px;
 }
 
-.output_paragraph{
+.output__paragraph{
     font-weight: 900;
     font-size: 24px;
+}
+
+label{
+    margin-bottom: 5px;
 }
