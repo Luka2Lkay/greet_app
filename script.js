@@ -1,14 +1,14 @@
-const errorMsg = document.getElementById('error_message');
-const outputName = document.getElementById('output');
-const input = document.getElementById('input_value');
+const errorMsg = document.getElementById('error__message');
+const outputName = document.getElementById('output__message');
+const input = document.getElementById('input__value');
 const counter = document.getElementById('counter');
 const isixhosaRadio = document.getElementById('isixhosa');
 const englishRadio = document.getElementById('english');
 const portugueseRadio = document.getElementById('portuguese');
-const greetBtn = document.getElementById('greet_button');
-const resetBtn = document.getElementById('reset_button');
-const showGreetedBtn = document.getElementById('list_button');
-const showGreeted = document.getElementById('show_greeted');
+const greetBtn = document.getElementById('greet__button');
+const resetBtn = document.getElementById('reset__button');
+const showGreetedBtn = document.getElementById('list__button');
+const showGreeted = document.getElementById('show__greeted');
 const showGreetedPara = document.createElement('p');
 const outputPara = document.createElement('p');
 const errorPara = document.createElement('p');
@@ -72,7 +72,7 @@ const renderGreeting = (existingNames) => {
             outputName.classList.add('output_paragraph');
             outputName.appendChild(outputPara);
 
-            errorPara.textContent = 'You have already greeted this person';
+            errorPara.textContent = 'Greet the person once!';
 
             setTimeout(() => {
                 errorPara.textContent = render.clearMsg();
