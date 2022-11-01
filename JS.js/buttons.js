@@ -33,11 +33,6 @@ greetBtn.addEventListener("click", () => {
           }, 4000);
           return;
         } else {
-          const uniqueNames = render.getGreetedNames().filter((name, index) => {
-            const seen = {}
-            return render.getGreetedNames().indexOf(name) ===index
-          })
-          console.log(uniqueNames)
           correctHeading.textContent = render.sayHello(input.value);
           counter.textContent = render.getCounter();
         }

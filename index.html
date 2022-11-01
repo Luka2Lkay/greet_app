@@ -10,41 +10,44 @@
 </head>
 
 <body>
-    <main>
-        <header>
-            <h1>Greeting App</h1>
-        </header>
+  
+
         <article class="output">
             <div id="error__message"></div>
             <div id="correct__message"></div>
         </article>
-  
-        <input type="text" id="input__value" placeholder="Greet Someone!">
-        <h4 class="greeted__names__heading">
-            No. of names greeted: <span id="counter">0</span>
-        </h4>
 
-        <div id="radio__buttons">
-            <label for="isixhosa">
-                IsiXhosa <input type="radio" name="lang" id="isixhosa">
-            </label>
-            <label for="english">
-                English <input type="radio" name="lang" id="english">
-            </label>
-            <label for="portuguese">
-                Portuguese <input type="radio" name="lang" id="portuguese">
-            </label>
-        </div>
+        <main>
+            <h1>Greeting App</h1>
+            <input type="text" id="input__value" placeholder="Greet Someone!">
+            <h4 class="greeted__names__heading">
+                No. of names greeted: <span id="counter">0</span>
+            </h4>
 
-        <div id="buttons">
-            <button id="greet__button">GREET</button>
-            <button id="reset__button">RESET</button>
-            <button id="list__button">SHOW GREETED PEOPLE</button>
-        </div>
-        <div id="show__greeted"></div>
-    </main>
+            <div id="radio__buttons">
+                <label for="isixhosa">
+                    IsiXhosa <input type="radio" name="lang" id="isixhosa">
+                </label>
+                <label for="english">
+                    English <input type="radio" name="lang" id="english">
+                </label>
+                <label for="portuguese">
+                    Portuguese <input type="radio" name="lang" id="portuguese">
+                </label>
+            </div>
+
+            <div id="buttons">
+                <button id="greet__button">GREET</button>
+                <button id="reset__button">RESET</button>
+                <button id="list__button">SHOW GREETED PEOPLE</button>
+            </div>
+        </main>
+
+        <article id="show__greeted"></article>
+    
     <script src="./JS.js/dom_variables.js"></script>
     <script src="./JS.js/factory_function.js"></script>
     <script src="./JS.js/buttons.js"></script>
 </body>
+
 </html>
