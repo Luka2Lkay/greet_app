@@ -31,7 +31,10 @@ const renderGreeting = (existingNames) => {
   const enterNameFirst = () =>
     "Please enter a name in the text-box and select a language of your choice before viewing people greeted!";
   const greetOnce = () => "Greet the person once!";
-  const uniqueNames = () => getGreetedNames().filter((name, index) => getGreetedNames().indexOf(name) ===index)
+  const uniqueNames = () =>
+    getGreetedNames().filter(
+      (name, index) => getGreetedNames().indexOf(name) === index
+    );
   const getCounter = () => Object.values(uniqueNames()).length;
   const getGreetedNames = () => Object.values(greetedNames);
   const clearMsg = () => null;
@@ -40,7 +43,7 @@ const renderGreeting = (existingNames) => {
     (greetedNames[sayHello(enteredName)] = capitalizedName(enteredName));
 
   const showAllGreeted = () => {
-    return `You have greeted: ${uniqueNames()}`;
+    return `${uniqueNames()}`;
   };
 
   return {
@@ -57,6 +60,6 @@ const renderGreeting = (existingNames) => {
     enterNameFirst,
     capitalizedName,
     greetOnce,
-    uniqueNames
+    uniqueNames,
   };
 };
