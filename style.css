@@ -89,7 +89,6 @@ main{
     height: 3em;
     text-align: center;
     font-weight: 900;
-    font-size: 24px;
 }
 
 #show__greeted {
@@ -111,4 +110,8 @@ label{
 
 #correct__message{
     color: lime;
+}
+
+#error__message{
+    color: red;
 }
