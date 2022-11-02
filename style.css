@@ -137,6 +137,7 @@ label {
 
     .output {
         left: 20em;
+        height: 12em;
     }
 
     .output {
@@ -145,6 +146,8 @@ label {
 
     #show__greeted {
         left: 18em;
+        top: 50em;
+        height: 15em;
     }
 }
 
@@ -180,13 +183,31 @@ label {
     .output {
         top: 2em;
         left: 10em;
-        height: 10em;
+        height: 12em;
         width: 40%;
     }
 
 
     #show__greeted {
-        top: 32em;
+        top: 33em;
+        width: 50%;
+        left: 25%;
+        min-height: 5em;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    .output {
+        top: 2em;
+        left: 3em;
+        height: 12em;
+        width: 60%;
+    }
+
+
+    #show__greeted {
+        top: 33em;
         width: 50%;
         left: 25%;
         min-height: 5em;
@@ -208,10 +229,32 @@ label {
     }
 
     #show__greeted {
-        top: 32em;
+        top: 33em;
         width: 70%;
         left: 2em;
         min-height: 10em;
         max-height: 100%;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    .output {
+        width: 80%;
+        min-height: 6em;
+        max-height: 100%;
+        left: 2em;
+    }
+
+    main {
+        width: 100%;
+        left: 0;
+    }
+
+    #show__greeted {
+        top: 32em;
+        width: 70%;
+        left: 2em;
+     height: 5em;
     }
 }
